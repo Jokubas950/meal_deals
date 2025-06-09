@@ -11,11 +11,11 @@ app.use(express.json());
 
 // Routes
 const authRoutes = require('./routes/authRoutes');
-const mealRoutes = require('./routes/meals');
-const orderRoutes = require('./routes/order');
+const itemRoutes = require('./routes/items');
+const likeRoutes = require('./routes/likes');
 app.use('/api/auth', authRoutes);
-app.use('/api/meals', mealRoutes);
-app.use('/api/orders', orderRoutes);
+app.use('/api/items', itemRoutes);
+app.use('/api/likes', likeRoutes);
 
 
 // Connect to MongoDB (updated, no deprecated options)

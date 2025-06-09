@@ -2,7 +2,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import LikedMeals from './pages/LikedMeals'
+import LikedMeals from './pages/LikedItems'
 import AdminDashboard from './pages/AdminDashboard'
 import LogoutButton from './components/LogoutButton'
 

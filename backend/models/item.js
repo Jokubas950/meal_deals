@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const mealSchema = new mongoose.Schema({
+const itemSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   price: { type: Number, required: true },
@@ -8,4 +8,4 @@ const mealSchema = new mongoose.Schema({
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 });
 
-module.exports = mongoose.model('Meal', mealSchema);
+module.exports = mongoose.model('Item', itemSchema);

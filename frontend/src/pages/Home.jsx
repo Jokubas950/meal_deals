@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react'
-import MealCard from '../components/MealCard'
+import ItemCard from '../components/ItemCard'
+import ItemForm from '../components/ItemForm'
 
 export default function Home() {
-  const [meals, setMeals] = useState([])
+  const [items, setMeals] = useState([])
 
   useEffect(() => {
     const fetchMeals = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/meals')
+        const res = await fetch('http://localhost:5000/api/items')
         const data = await res.json()
         setMeals(data)
       } catch (err) {
-        alert('Failed to fetch meals.')
+        alert('Failed to fetch items.')
       }
     }
 
@@ -20,16 +21,17 @@ export default function Home() {
 
   return (
     <div>
-      <h1>All Meals</h1>
+      <h1>All items</h1>
+      <ItemForm onMealCreated={newMeal => setMeals(prev => [...prev, newMeal])} />
       <div style={{
         display: 'flex',
         flexWrap: 'wrap'
       }}>
-        {meals.length === 0 ? (
-          <p>No meals available.</p>
+        {items.length === 0 ? (
+          <p>No items available.</p>
         ) : (
-          meals.map(meal => (
-            <MealCard key={meal._id} meal={meal} />
+          items.map(item => (
+            <ItemCard key={item._id} item={item} />
           ))
         )}
       </div>

@@ -1,13 +1,13 @@
 import { useState } from 'react'
 
-export default function MealCard({ meal }) {
-  const [orders, setOrders] = useState(meal.orders || 0)
+export default function ItemCard({ item }) {
+  const [orders, setOrders] = useState(item.orders || 0)
   const [liked, setLiked] = useState(false) // new state
 
   const handleLike = async () => {
     try {
       const token = localStorage.getItem('token')
-      const res = await fetch(`http://localhost:5000/api/orders/${meal._id}`, {
+      const res = await fetch(`http://localhost:5000/api/items/${item._id}`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`
@@ -32,9 +32,9 @@ export default function MealCard({ meal }) {
       margin: '1rem',
       width: '250px'
     }}>
-      <h3>{meal.title}</h3>
-      <h4>{meal.price}</h4>
-      <p>{meal.description}</p>
+      <h3>{item.title}</h3>
+      <h4>{item.price}</h4>
+      <p>{item.description}</p>
       <button>buy</button>
       <button
         onClick={handleLike}

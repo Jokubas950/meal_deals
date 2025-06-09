@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import MealForm from '../components/MealForm'
-import MealCard from '../components/MealCard'
+import ItemForm from '../components/ItemForm'
+import ItemCard from '../components/ItemCard'
 
 export default function AdminDashboard() {
-  const [meals, setMeals] = useState([])
+  const [items, setMeals] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/meals')
+    fetch('http://localhost:5000/api/items')
       .then(res => res.json())
       .then(setMeals)
   }, [])
@@ -14,10 +14,9 @@ export default function AdminDashboard() {
   return (
     <div>
       <h1>Admin Dashboard</h1>
-      <MealForm onMealCreated={newMeal => setMeals(prev => [...prev, newMeal])} />
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {meals.map(meal => (
-          <MealCard key={meal._id} meal={meal} />
+        {items.map(item => (
+          <ItemCard key={item._id} item={item} />
         ))}
       </div>
     </div>

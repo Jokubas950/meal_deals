@@ -1,3 +1,3 @@
 export default function LikedMeals() {
-  return <h1>Liked meals</h1>
+  return <h1>Liked items</h1>
 }
